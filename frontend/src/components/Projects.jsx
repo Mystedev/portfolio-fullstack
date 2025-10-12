@@ -27,14 +27,18 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="projects" ref={projectsRef} className="py-20 bg-slate-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" ref={projectsRef} className="py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-indigo-200/30 rounded-full blur-3xl animate-float"></div>
+      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-purple-200/30 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16 fade-in-on-scroll">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-            Featured <span className="text-emerald-400">Projects</span>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-800 mb-4">
+            Featured <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Projects</span>
           </h2>
-          <div className="w-20 h-1 bg-emerald-400 mx-auto mb-4"></div>
-          <p className="text-slate-300 text-lg max-w-2xl mx-auto">
+          <div className="w-24 h-1.5 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-4 rounded-full"></div>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Here are some of my recent projects that showcase my skills and experience
           </p>
         </div>
@@ -43,24 +47,29 @@ const Projects = () => {
           {mockProjects.map((project, index) => (
             <Card
               key={project.id}
-              className="bg-slate-800 border-slate-700 overflow-hidden hover:border-emerald-400 transition-all duration-300 hover:transform hover:-translate-y-2 fade-in-on-scroll group"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="bg-white/90 backdrop-blur-sm border-2 border-gray-200 overflow-hidden hover:border-indigo-400 transition-all duration-500 hover:transform hover:-translate-y-4 hover:shadow-2xl fade-in-on-scroll group hover:rotate-1"
+              style={{ animationDelay: `${index * 0.15}s` }}
             >
-              <div className="relative overflow-hidden h-48">
+              <div className="relative overflow-hidden h-48 bg-gradient-to-br from-indigo-100 to-purple-100">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-125 group-hover:rotate-3"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/80 to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                
+                {/* Floating badge */}
+                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-indigo-600 transform group-hover:scale-110 transition-transform">
+                  {project.category}
+                </div>
               </div>
               
               <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-indigo-600 transition-colors">
                   {project.title}
                 </h3>
                 
-                <p className="text-slate-300 text-sm mb-4 line-clamp-3">
+                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
                   {project.description}
                 </p>
 
@@ -69,13 +78,13 @@ const Projects = () => {
                     <Badge
                       key={techIndex}
                       variant="secondary"
-                      className="bg-emerald-500/10 text-emerald-400 border-emerald-500/20 text-xs"
+                      className="bg-indigo-100 text-indigo-700 border border-indigo-200 text-xs hover:bg-indigo-200 transition-colors"
                     >
                       {tech}
                     </Badge>
                   ))}
                   {project.tech.length > 3 && (
-                    <Badge variant="secondary" className="bg-slate-700 text-slate-300 text-xs">
+                    <Badge variant="secondary" className="bg-gray-200 text-gray-700 text-xs">
                       +{project.tech.length - 3}
                     </Badge>
                   )}
@@ -85,7 +94,7 @@ const Projects = () => {
                   <Button
                     size="sm"
                     variant="outline"
-                    className="flex-1 border-slate-600 text-slate-200 hover:bg-slate-700"
+                    className="flex-1 border-2 border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-indigo-400 transition-all transform hover:scale-105"
                     onClick={() => window.open(project.github, '_blank')}
                   >
                     <Github size={16} className="mr-2" />
@@ -93,7 +102,7 @@ const Projects = () => {
                   </Button>
                   <Button
                     size="sm"
-                    className="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white"
+                    className="flex-1 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white shadow-md hover:shadow-lg transform hover:scale-105 transition-all"
                     onClick={() => window.open(project.demo, '_blank')}
                   >
                     <ExternalLink size={16} className="mr-2" />
