@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { mockSkills } from '../mockData';
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 
 const Skills = () => {
   const skillsRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -12,6 +13,7 @@ const Skills = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('fade-in-visible');
+            setIsVisible(true);
           }
         });
       },
@@ -25,21 +27,25 @@ const Skills = () => {
   }, []);
 
   const skillCategories = [
-    { name: 'Backend Development', skills: mockSkills.backend, color: 'emerald' },
-    { name: 'Mobile Development', skills: mockSkills.mobile, color: 'blue' },
-    { name: 'Design & UI/UX', skills: mockSkills.design, color: 'purple' },
-    { name: 'Tools & Others', skills: mockSkills.other, color: 'orange' }
+    { name: 'Backend Development', skills: mockSkills.backend, gradient: 'from-blue-500 to-cyan-500' },
+    { name: 'Mobile Development', skills: mockSkills.mobile, gradient: 'from-purple-500 to-pink-500' },
+    { name: 'Design & UI/UX', skills: mockSkills.design, gradient: 'from-indigo-500 to-blue-500' },
+    { name: 'Tools & Others', skills: mockSkills.other, gradient: 'from-orange-500 to-red-500' }
   ];
 
   return (
-    <section id="skills" ref={skillsRef} className="py-20 bg-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" ref={skillsRef} className="py-20 bg-gradient-to-br from-white via-indigo-50 to-purple-50 relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl animate-float"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-200/30 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }}></div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16 fade-in-on-scroll">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-            Skills & <span className="text-emerald-400">Expertise</span>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-800 mb-4">
+            Skills & <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Expertise</span>
           </h2>
-          <div className="w-20 h-1 bg-emerald-400 mx-auto mb-4"></div>
-          <p className="text-slate-300 text-lg max-w-2xl mx-auto">
+          <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-4 rounded-full"></div>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Technologies and tools I work with to bring ideas to life
           </p>
         </div>
@@ -48,25 +54,25 @@ const Skills = () => {
           {skillCategories.map((category, index) => (
             <Card
               key={index}
-              className="bg-slate-900 border-slate-700 p-6 hover:border-emerald-400 transition-all duration-300 fade-in-on-scroll"
+              className="bg-white/90 backdrop-blur-sm border-2 border-gray-200 p-8 hover:border-blue-400 transition-all duration-500 fade-in-on-scroll hover:shadow-2xl group hover:-translate-y-2"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
-              <h3 className="text-xl font-bold text-white mb-6">{category.name}</h3>
-              <div className="space-y-4">
+              <h3 className="text-2xl font-bold text-gray-800 mb-6 group-hover:text-blue-600 transition-colors">{category.name}</h3>
+              <div className="space-y-5">
                 {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className="group">
+                  <div key={skillIndex} className="group/skill">
                     <div className="flex justify-between items-center mb-2">
-                      <span className="text-slate-300 group-hover:text-emerald-400 transition-colors">
+                      <span className="text-gray-700 font-medium group-hover/skill:text-blue-600 transition-colors">
                         {skill.name}
                       </span>
-                      <span className="text-emerald-400 text-sm font-mono">{skill.level}%</span>
+                      <span className="text-blue-600 text-sm font-bold bg-blue-100 px-3 py-1 rounded-full">{skill.level}%</span>
                     </div>
-                    <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
+                    <div className="h-3 bg-gray-200 rounded-full overflow-hidden shadow-inner">
                       <div
-                        className="h-full bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full transition-all duration-1000 ease-out"
+                        className={`h-full bg-gradient-to-r ${category.gradient} rounded-full transition-all duration-1000 ease-out skill-bar-fill shadow-md`}
                         style={{
-                          width: `${skill.level}%`,
-                          animationDelay: `${skillIndex * 0.1}s`
+                          width: isVisible ? `${skill.level}%` : '0%',
+                          transitionDelay: `${skillIndex * 0.1}s`
                         }}
                       ></div>
                     </div>
@@ -77,15 +83,19 @@ const Skills = () => {
           ))}
         </div>
 
-        {/* Tech Stack Badges */}
+        {/* Tech Stack Badges with animations */}
         <div className="mt-16 text-center fade-in-on-scroll">
-          <h3 className="text-2xl font-bold text-white mb-8">Tech Stack</h3>
+          <h3 className="text-3xl font-bold text-gray-800 mb-8">Tech Stack</h3>
           <div className="flex flex-wrap justify-center gap-3">
             {['Node.js', 'Python', 'Flutter', 'Dart', 'FastAPI', 'Express', 'MongoDB', 'PostgreSQL', 
               'Redis', 'Docker', 'Firebase', 'Git', 'REST APIs', 'WebSocket', 'Kubernetes'].map((tech, index) => (
               <Badge
                 key={index}
-                className="bg-slate-900 text-slate-200 border-slate-700 hover:border-emerald-400 hover:text-emerald-400 transition-all px-4 py-2 text-sm cursor-default"
+                className="bg-white border-2 border-gray-300 text-gray-700 hover:border-blue-500 hover:text-blue-600 hover:shadow-lg transition-all px-5 py-2.5 text-sm cursor-default transform hover:scale-110 hover:-rotate-3"
+                style={{ 
+                  animationDelay: `${index * 0.05}s`,
+                  animation: 'slideUp 0.5s ease-out both'
+                }}
               >
                 {tech}
               </Badge>

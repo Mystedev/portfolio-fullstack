@@ -52,14 +52,18 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" ref={contactRef} className="py-20 bg-slate-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" ref={contactRef} className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl animate-float"></div>
+      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-purple-200/30 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16 fade-in-on-scroll">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-            Get In <span className="text-emerald-400">Touch</span>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-800 mb-4">
+            Get In <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Touch</span>
           </h2>
-          <div className="w-20 h-1 bg-emerald-400 mx-auto mb-4"></div>
-          <p className="text-slate-300 text-lg max-w-2xl mx-auto">
+          <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-4 rounded-full"></div>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Have a project in mind? Let's work together to bring your ideas to life
           </p>
         </div>
@@ -67,35 +71,35 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Info */}
           <div className="fade-in-on-scroll">
-            <h3 className="text-2xl font-bold text-white mb-6">Let's Talk</h3>
-            <p className="text-slate-300 mb-8 leading-relaxed">
+            <h3 className="text-3xl font-bold text-gray-800 mb-6">Let's Talk</h3>
+            <p className="text-gray-600 mb-8 leading-relaxed text-lg">
               I'm always interested in hearing about new projects and opportunities. 
               Whether you have a question or just want to say hi, feel free to reach out!
             </p>
 
             <div className="space-y-6">
-              <Card className="bg-slate-800 border-slate-700 p-4 hover:border-emerald-400 transition-colors">
+              <Card className="bg-white/90 backdrop-blur-sm border-2 border-gray-200 p-6 hover:border-blue-400 transition-all duration-500 transform hover:scale-105 hover:shadow-xl group">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-emerald-500/10 rounded-full flex items-center justify-center">
-                    <Mail size={20} className="text-emerald-400" />
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform shadow-lg">
+                    <Mail size={24} className="text-white" />
                   </div>
                   <div>
-                    <p className="text-slate-400 text-sm">Email</p>
-                    <a href={`mailto:${mockPersonalInfo.email}`} className="text-white hover:text-emerald-400 transition-colors">
+                    <p className="text-gray-500 text-sm font-semibold">Email</p>
+                    <a href={`mailto:${mockPersonalInfo.email}`} className="text-gray-800 hover:text-blue-600 transition-colors font-medium text-lg">
                       {mockPersonalInfo.email}
                     </a>
                   </div>
                 </div>
               </Card>
 
-              <Card className="bg-slate-800 border-slate-700 p-4 hover:border-emerald-400 transition-colors">
+              <Card className="bg-white/90 backdrop-blur-sm border-2 border-gray-200 p-6 hover:border-purple-400 transition-all duration-500 transform hover:scale-105 hover:shadow-xl group">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-emerald-500/10 rounded-full flex items-center justify-center">
-                    <MapPin size={20} className="text-emerald-400" />
+                  <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform shadow-lg">
+                    <MapPin size={24} className="text-white" />
                   </div>
                   <div>
-                    <p className="text-slate-400 text-sm">Location</p>
-                    <p className="text-white">Available for remote work</p>
+                    <p className="text-gray-500 text-sm font-semibold">Location</p>
+                    <p className="text-gray-800 font-medium text-lg">Available for remote work</p>
                   </div>
                 </div>
               </Card>
@@ -103,10 +107,10 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <Card className="bg-slate-800 border-slate-700 p-8 fade-in-on-scroll" style={{ animationDelay: '0.2s' }}>
+          <Card className="bg-white/90 backdrop-blur-sm border-2 border-gray-200 p-8 fade-in-on-scroll hover:border-blue-400 transition-all duration-500 hover:shadow-2xl" style={{ animationDelay: '0.2s' }}>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-slate-300 mb-2 text-sm">
+                <label htmlFor="name" className="block text-gray-700 mb-2 text-sm font-semibold">
                   Name
                 </label>
                 <Input
@@ -116,13 +120,13 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="bg-slate-900 border-slate-700 text-white focus:border-emerald-400"
+                  className="bg-white border-2 border-gray-300 text-gray-800 focus:border-blue-500 transition-all"
                   placeholder="Your name"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-slate-300 mb-2 text-sm">
+                <label htmlFor="email" className="block text-gray-700 mb-2 text-sm font-semibold">
                   Email
                 </label>
                 <Input
@@ -132,13 +136,13 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="bg-slate-900 border-slate-700 text-white focus:border-emerald-400"
+                  className="bg-white border-2 border-gray-300 text-gray-800 focus:border-blue-500 transition-all"
                   placeholder="your.email@example.com"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-slate-300 mb-2 text-sm">
+                <label htmlFor="message" className="block text-gray-700 mb-2 text-sm font-semibold">
                   Message
                 </label>
                 <Textarea
@@ -148,14 +152,14 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="bg-slate-900 border-slate-700 text-white focus:border-emerald-400 resize-none"
+                  className="bg-white border-2 border-gray-300 text-gray-800 focus:border-blue-500 resize-none transition-all"
                   placeholder="Tell me about your project..."
                 />
               </div>
 
               <Button
                 type="submit"
-                className="w-full bg-emerald-500 hover:bg-emerald-600 text-white"
+                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
                 size="lg"
               >
                 <Send size={18} className="mr-2" />
