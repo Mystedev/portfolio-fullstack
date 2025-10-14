@@ -10,7 +10,7 @@ import Footer from './components/Footer';
 import { Toaster } from './components/ui/toaster';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <div className="App">

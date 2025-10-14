@@ -1,12 +1,11 @@
 export const mockPersonalInfo = {
-  name: "Alex Rodriguez",
+  name: "Dennys Lazaro",
   title: "FullStack Developer",
-  tagline: "Backend & Flutter Specialist",
+  tagline: "Backend & Flutter Developer",
   bio: "Passionate developer with expertise in building scalable backend systems and beautiful mobile applications. I love creating solutions that make a real impact.",
-  email: "alex.rodriguez@example.com",
-  github: "https://github.com/alexrodriguez",
-  linkedin: "https://linkedin.com/in/alexrodriguez",
-  twitter: "https://twitter.com/alexrodriguez"
+  email: "dennyspm.dev@gmail.com",
+  github: "https://github.com/Mystedev",
+  linkedin: "https://www.linkedin.com/in/dennyspm"
 };
 
 export const mockProjects = [
