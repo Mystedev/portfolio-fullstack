@@ -27,10 +27,10 @@ const Skills = () => {
   }, []);
 
   const skillCategories = [
-    { name: 'Backend Development', skills: mockSkills.backend, gradient: 'from-blue-500 to-cyan-500' },
-    { name: 'Mobile Development', skills: mockSkills.mobile, gradient: 'from-purple-500 to-pink-500' },
-    { name: 'Design & UI/UX', skills: mockSkills.design, gradient: 'from-indigo-500 to-blue-500' },
-    { name: 'Tools & Others', skills: mockSkills.other, gradient: 'from-orange-500 to-red-500' }
+    { name: 'Desarrollo Backend', skills: mockSkills.backend, gradient: 'from-blue-500 to-cyan-500' },
+    { name: 'Desarrollo Móvil', skills: mockSkills.mobile, gradient: 'from-purple-500 to-pink-500' },
+    { name: 'Diseño & UI/UX', skills: mockSkills.design, gradient: 'from-indigo-500 to-blue-500' },
+    { name: 'Herramientas & Otros', skills: mockSkills.other, gradient: 'from-orange-500 to-red-500' }
   ];
 
   return (
@@ -42,11 +42,11 @@ const Skills = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16 fade-in-on-scroll">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-800 mb-4">
-            Skills & <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Expertise</span>
+            Habilidades & <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Experiencia</span>
           </h2>
           <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-4 rounded-full"></div>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Technologies and tools I work with to bring ideas to life
+            Tecnologías y herramientas que utilizo para dar vida a las ideas
           </p>
         </div>
 
@@ -85,16 +85,16 @@ const Skills = () => {
 
         {/* Tech Stack Badges with animations */}
         <div className="mt-16 text-center fade-in-on-scroll">
-          <h3 className="text-3xl font-bold text-gray-800 mb-8">Tech Stack</h3>
+          <h3 className="text-3xl font-bold text-gray-800 mb-8">Tecnologías</h3>
           <div className="flex flex-wrap justify-center gap-3">
-            {['Node.js', 'Python', 'Flutter', 'Dart', 'FastAPI', 'Express', 'MongoDB', 'PostgreSQL', 
-              'Redis', 'Docker', 'Firebase', 'Git', 'REST APIs', 'WebSocket', 'Kubernetes'].map((tech, index) => (
+            {['Node.js', 'Python', 'Flutter', 'Dart', 'MySQL', 'MongoDB', 'PostgreSQL', 'Java', 'Javascript', 
+              'Redis', 'Firebase', 'Git', 'REST APIs', 'Hibernate','SpringBoot'].map((tech, index) => (
               <Badge
                 key={index}
-                className="bg-white border-2 border-gray-300 text-gray-700 hover:border-blue-500 hover:text-blue-600 hover:shadow-lg transition-all px-5 py-2.5 text-sm cursor-default transform hover:scale-110 hover:-rotate-3"
+                className="bg-white border border-gray-200 text-gray-700 hover:border-blue-400 hover:text-blue-600 hover:shadow-md transition-all duration-300 px-4 py-1.5 text-sm cursor-default transform hover:scale-105"
                 style={{ 
-                  animationDelay: `${index * 0.05}s`,
-                  animation: 'slideUp 0.5s ease-out both'
+                  animationDelay: `${index * 0.03}s`,
+                  animation: 'fadeInUp 0.5s ease-out both'
                 }}
               >
                 {tech}

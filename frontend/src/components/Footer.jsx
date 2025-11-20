@@ -52,23 +52,18 @@ const Footer = () => {
                   Skills
                 </button>
               </li>
-              <li>
-                <button onClick={() => scrollToSection('contact')} className="text-gray-600 hover:text-blue-600 transition-all font-medium hover:translate-x-2 inline-block">
-                  Contact
-                </button>
-              </li>
             </ul>
           </div>
 
           {/* Social Links */}
           <div>
-            <h3 className="text-gray-800 font-bold mb-4 text-lg">Connect</h3>
+            <h3 className="text-gray-800 font-bold mb-4 text-lg">Connect with me</h3>
             <div className="flex gap-4">
               <a
                 href={mockPersonalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-gray-600 hover:text-white hover:bg-gradient-to-br hover:from-blue-600 hover:to-indigo-600 transition-all shadow-md hover:shadow-xl transform hover:scale-110 hover:rotate-12"
+                className="w-12 h-12 bg-black rounded-xl flex items-center justify-center text-white hover:text-white hover:bg-gradient-to-br hover:from-blue-600 hover:to-indigo-600 transition-all shadow-md hover:shadow-xl transform hover:scale-110 hover:rotate-12"
               >
                 <Github size={20} />
               </a>
@@ -76,21 +71,13 @@ const Footer = () => {
                 href={mockPersonalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-gray-600 hover:text-white hover:bg-gradient-to-br hover:from-blue-600 hover:to-indigo-600 transition-all shadow-md hover:shadow-xl transform hover:scale-110 hover:rotate-12"
+                className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white hover:text-white hover:bg-gradient-to-br hover:from-blue-600 hover:to-indigo-600 transition-all shadow-md hover:shadow-xl transform hover:scale-110 hover:rotate-12"
               >
                 <Linkedin size={20} />
               </a>
               <a
-                href={mockPersonalInfo.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-gray-600 hover:text-white hover:bg-gradient-to-br hover:from-blue-600 hover:to-indigo-600 transition-all shadow-md hover:shadow-xl transform hover:scale-110 hover:rotate-12"
-              >
-                <Twitter size={20} />
-              </a>
-              <a
                 href={`mailto:${mockPersonalInfo.email}`}
-                className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-gray-600 hover:text-white hover:bg-gradient-to-br hover:from-blue-600 hover:to-indigo-600 transition-all shadow-md hover:shadow-xl transform hover:scale-110 hover:rotate-12"
+                className="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center text-white hover:text-white hover:bg-gradient-to-br hover:from-blue-600 hover:to-indigo-600 transition-all shadow-md hover:shadow-xl transform hover:scale-110 hover:rotate-12"
               >
                 <Mail size={20} />
               </a>
@@ -101,7 +88,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t-2 border-gray-300 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-600 text-sm flex items-center gap-2">
-            © {currentYear} {mockPersonalInfo.name}. Made with <Heart size={16} className="text-red-500 animate-scale-pulse" fill="currentColor" /> using React & FastAPI
+            © {currentYear} {mockPersonalInfo.name}. Made with <Heart size={16} className="text-red-500 animate-scale-pulse" fill="currentColor" /> using React
           </p>
           <p className="text-gray-600 text-sm">
             Designed & Built by {mockPersonalInfo.name.split(' ')[0]}

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import { Github } from 'lucide-react';
 import { mockProjects } from '../mockData';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
@@ -31,15 +31,15 @@ const Projects = () => {
       {/* Background decorations */}
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-indigo-200/30 rounded-full blur-3xl animate-float"></div>
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-purple-200/30 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16 fade-in-on-scroll">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-800 mb-4">
-            Featured <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Projects</span>
+            <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Proyectos</span>
           </h2>
           <div className="w-24 h-1.5 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-4 rounded-full"></div>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Here are some of my recent projects that showcase my skills and experience
+            Algunos de mis proyectos recientes
           </p>
         </div>
 
@@ -57,18 +57,18 @@ const Projects = () => {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-125 group-hover:rotate-3"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/80 to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
-                
+
                 {/* Floating badge */}
                 <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-indigo-600 transform group-hover:scale-110 transition-transform">
                   {project.category}
                 </div>
               </div>
-              
+
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-indigo-600 transition-colors">
                   {project.title}
                 </h3>
-                
+
                 <p className="text-gray-600 text-sm mb-4 line-clamp-3">
                   {project.description}
                 </p>
@@ -90,23 +90,15 @@ const Projects = () => {
                   )}
                 </div>
 
-                <div className="flex gap-3">
+                <div className="flex">
                   <Button
                     size="sm"
                     variant="outline"
-                    className="flex-1 border-2 border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-indigo-400 transition-all transform hover:scale-105"
+                    className="w-full border-2 border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-indigo-400 transition-all transform hover:scale-105"
                     onClick={() => window.open(project.github, '_blank')}
                   >
                     <Github size={16} className="mr-2" />
                     Code
-                  </Button>
-                  <Button
-                    size="sm"
-                    className="flex-1 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white shadow-md hover:shadow-lg transform hover:scale-105 transition-all"
-                    onClick={() => window.open(project.demo, '_blank')}
-                  >
-                    <ExternalLink size={16} className="mr-2" />
-                    Demo
                   </Button>
                 </div>
               </div>

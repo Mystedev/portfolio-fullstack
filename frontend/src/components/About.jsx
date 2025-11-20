@@ -26,24 +26,24 @@ const About = () => {
   const specialties = [
     {
       icon: Server,
-      title: "Backend Development",
-      description: "Building scalable and efficient server-side applications with Node.js, Python, and modern frameworks.",
+      title: "Desarrollo Backend",
+      description: "Construyendo aplicaciones del lado del servidor escalables y eficientes con Node.js, Python, DJango y frameworks modernos como React.",
       color: "blue",
-      gradient: "from-blue-500 to-indigo-500"
+      gradient: "from-pink-500 to-indigo-500"
     },
     {
       icon: Smartphone,
-      title: "Flutter Development",
-      description: "Creating beautiful cross-platform mobile applications with Flutter, delivering native performance.",
+      title: "Desarrollo de apps con Flutter",
+      description: "Creando hermosas aplicaciones móviles multiplataforma con Flutter, ofreciendo rendimiento nativo.",
       color: "purple",
-      gradient: "from-purple-500 to-pink-500"
+      gradient: "from-yellow-500 to-pink-500"
     },
     {
       icon: Code,
-      title: "UI/UX Design",
-      description: "Designing intuitive interfaces with attention to detail, animations, and user experience.",
+      title: "Diseño UI/UX",
+      description: "Diseñando interfaces intuitivas con atención al detalle, animaciones y experiencia de usuario.",
       color: "indigo",
-      gradient: "from-indigo-500 to-blue-500"
+      gradient: "from-pink-500 to-blue-500"
     }
   ];
 
@@ -52,11 +52,11 @@ const About = () => {
       {/* Background decorations */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-200/30 rounded-full blur-3xl"></div>
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16 fade-in-on-scroll">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-800 mb-4">
-            About <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Me</span>
+            Sobre <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Mí</span>
           </h2>
           <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
         </div>
@@ -70,7 +70,7 @@ const About = () => {
             >
               <div className="flex flex-col items-center text-center">
                 <div className={`w-20 h-20 bg-gradient-to-br ${specialty.gradient} rounded-2xl flex items-center justify-center mb-6 transform group-hover:rotate-12 transition-all duration-500 shadow-lg group-hover:shadow-xl animate-float`}
-                     style={{ animationDelay: `${index * 0.5}s` }}>
+                  style={{ animationDelay: `${index * 0.5}s` }}>
                   <specialty.icon size={36} className="text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800 mb-4 group-hover:text-blue-600 transition-colors">{specialty.title}</h3>
@@ -83,10 +83,10 @@ const About = () => {
         <div className="mt-16 text-center fade-in-on-scroll">
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 max-w-4xl mx-auto border-2 border-gray-200 hover:border-blue-400 transition-all duration-500">
             <p className="text-lg text-gray-700 leading-relaxed">
-              I'm a passionate full-stack developer who loves turning ideas into reality through code. 
-              With expertise in backend development and Flutter, I create robust, scalable applications 
-              that not only function flawlessly but also provide exceptional user experiences. 
-              I'm constantly learning and exploring new technologies to stay at the forefront of development.
+              Soy un desarrollador full-stack apasionado que adora convertir ideas en realidad a través del código.
+              Con experiencia en desarrollo backend, frontend y flexible hacia el desarrollo de apps Windows y apps Móvil, creo aplicaciones robustas y escalables
+              que no solo funcionan , sino que también ofrecen experiencias de usuario excepcionales.
+              Me mantengo en constante aprendizaje y exploración de nuevas tecnologías para estar a la vanguardia del desarrollo.
             </p>
           </div>
         </div>
